@@ -14,7 +14,7 @@ A role-based ERP system for managing employees, projects, and tasks.
 - Manager
 - Employee
 
-## Modules (Phase 1)
+## Modules 
 - Authentication
 - Employee Management
 - Project Management
