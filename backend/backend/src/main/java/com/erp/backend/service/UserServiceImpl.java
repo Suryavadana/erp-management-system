@@ -1,5 +1,6 @@
 package com.erp.backend.service;
 
+import com.erp.backend.exception.DuplicateResourceException;
 import com.erp.backend.model.User;
 import com.erp.backend.repository.UserRepository;
 
@@ -23,10 +24,10 @@ public class UserServiceImpl implements UserService {
     public User createUser(User user) {
 
         if (userRepository.existsByUsername( user.getUsername( ) )){
-            throw new RuntimeException( "Username already exists" );
+            throw new DuplicateResourceException( "Username already exists" );
         }
         if(userRepository.existsByEmail( user.getEmail())){
-            throw new RuntimeException( "Email already exists" );
+            throw new DuplicateResourceException( "Email already exists" );
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
             return userRepository.save( user );
