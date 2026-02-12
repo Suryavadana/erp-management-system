@@ -1,5 +1,7 @@
 package com.erp.backend.controller;
 
+import com.erp.backend.dto.CreateUserRequest;
+import com.erp.backend.dto.UserResponse;
 import com.erp.backend.model.User;
 import com.erp.backend.service.UserService;
 import jakarta.validation.Valid;
@@ -18,12 +20,12 @@ public class UserController {
     }
 
     @PostMapping
-    public User createUser(@Valid @RequestBody User user){
-        return userService.createUser( user );
+    public UserResponse createUser(@Valid @RequestBody CreateUserRequest request){
+        return userService.createUser(request);
     }
 
     @GetMapping
-    public List<User> getAllUsers(){
+    public List<UserResponse> getAllUsers(){
         return userService.getAllUsers();
     }
 }
