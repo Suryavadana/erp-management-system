@@ -19,7 +19,9 @@ public class JwtUtil {
 //    private Key getSigningKey(){
 //        return Keys.hmacShaKeyFor( jwtSecret.getBytes());
 //    }
-
+    public Key getKey() {
+        return key;
+    }
     public String generateToken(String username){
         return Jwts.builder()
                 .setSubject(username) //identifies user
